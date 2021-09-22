@@ -16,5 +16,10 @@ pipeline {
                 sh "mvn package"
             }
         }
+        stage('--docker build--') {
+            steps {
+                sh "docker build -t shivambhardwaj1901/project_app ."
+            }
+        }
     }
 }
