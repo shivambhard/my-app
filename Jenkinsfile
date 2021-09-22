@@ -3,18 +3,17 @@ pipeline {
     stages {
         stage('---clean---') {
             steps {
-                sh "mvn clean"
+                sh "/opt/maven/bin/mvn clean"
             }
         }
-        stage('---package---') {
+        stage('--test--') {
             steps {
-                sh "mvn package"
+                sh "/opt/maven/bin/mvn test"
             }
         }
-        
-        stage('--docker build--') {
+        stage('--package--') {
             steps {
-                sh "docker build -t shivambhardwaj1901/project_app ."
+                sh "/opt/maven/bin/mvn package"
             }
         }
     }
